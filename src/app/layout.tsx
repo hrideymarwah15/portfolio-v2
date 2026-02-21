@@ -1,18 +1,19 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Press_Start_2P, VT323 } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 
-const inter = Inter({
+const pressStart = Press_Start_2P({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-heading",
   display: "swap",
 });
 
-const roboto = Roboto({
+const vt323 = VT323({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-roboto",
-  weight: ["400", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -44,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${roboto.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-foreground)]`}
+        className={`${pressStart.variable} ${vt323.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-foreground)]`}
       >
         <Navbar />
         {children}

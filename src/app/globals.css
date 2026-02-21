@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #6366F1;
-  --color-primary-hover: #4F46E5;
-  --color-primary-foreground: #FFFFFF;
-  --color-secondary: #F8FAFC;
-  --color-secondary-foreground: #1E293B;
-  --color-background: #FFFFFF;
-  --color-foreground: #1E293B;
-  --color-muted: #F1F5F9;
+  --color-primary: #00FFFF; /* Standard Retro Cyan */
+  --color-primary-hover: #00CCCC;
+  --color-primary-foreground: #09090B;
+  --color-secondary: #1E293B;
+  --color-secondary-foreground: #00FFFF;
+  --color-background: #09090B; /* Deep CRT background */
+  --color-foreground: #34D399; /* Green phosphor text */
+  --color-muted: #1E293B;
   --color-muted-foreground: #64748B;
-  --color-accent: #F59E0B;
-  --color-accent-foreground: #FFFFFF;
-  --color-border: #E2E8F0;
-  --color-card: #FFFFFF;
-  --color-card-foreground: #1E293B;
-  --color-success: #10B981;
-  --color-destructive: #EF4444;
-  --font-heading: var(--font-inter), sans-serif;
-  --font-body: var(--font-roboto), sans-serif;
+  --color-accent: #FFB000; /* Retro Amber */
+  --color-accent-foreground: #09090B;
+  --color-border: #00FFFF;
+  --color-card: #0F172A;
+  --color-card-foreground: #34D399;
+  --color-success: #39FF14;
+  --color-destructive: #FF003C;
+  --font-heading: var(--font-heading), monospace;
+  --font-body: var(--font-body), monospace;
 }
 
 html {
@@ -31,6 +31,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-background);
   color: var(--color-foreground);
+  margin: 0;
 }
 
 h1,
@@ -40,28 +41,28 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  text-transform: uppercase;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--color-background);
+  border-left: 1px solid var(--color-border);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
-  border-radius: 3px;
 }
 
-/* Glassmorphism utility */
+/* Redefining glassmorphism for retro blocky borders to reduce refactoring */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* subtle shadow for light mode glass */
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 1), 6px 6px 0px var(--color-border);
+  border-radius: 0; /* Overrides existing rounding in components */
 }
 
 /* Full-screen section */
@@ -74,19 +75,15 @@ h6 {
   overflow: hidden;
 }
 
-/* Gradient text */
+/* Gradient text - changed to solid retro color with glow */
 .gradient-text {
-  background: linear-gradient(135deg, #6366F1 0%, #10B981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 1), 4px 4px 0px var(--color-primary);
 }
 
 /* Glow effect */
 .glow {
-  box-shadow:
-    0 0 40px rgba(99, 102, 241, 0.15),
-    0 0 80px rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
 }
 
 /* Horizontal scroll container */
@@ -109,12 +106,61 @@ h6 {
   flex-shrink: 0;
 }
 
-/* Noise texture overlay */
-.noise::before {
+/* CRT and Scanlines */
+.crt::before {
   content: "";
+  display: block;
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 50;
+  background-size: 100% 3px, 3px 100%;
   pointer-events: none;
-  z-index: 0;
+}
+
+.scanline-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  opacity: 0.6;
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+  z-index: 51;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blinking-cursor {
+  animation: flash 1s step-end infinite;
+}
+
+.scan-flash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+  animation: scanFlashAnim 0.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 50;
+}
+
+@keyframes scanFlashAnim {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
 }
