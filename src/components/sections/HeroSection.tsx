@@ -9,7 +9,7 @@ export function HeroSection() {
     <section className="section-full noise relative" id="hero">
       {/* Ambient gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-primary)] rounded-full blur-[128px] opacity-20 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400 rounded-full blur-[100px] opacity-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[var(--color-success)] rounded-full blur-[100px] opacity-10" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div
@@ -50,7 +50,7 @@ export function HeroSection() {
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-foreground)] hover:border-[var(--color-primary)] hover:text-white transition-all duration-200"
+            className="px-8 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-foreground)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
           >
             Get In Touch
           </a>
@@ -66,7 +66,7 @@ export function HeroSection() {
             href={`https://github.com/${SITE_CONFIG.github}`}
             target="_blank"
             rel="noopener"
-            className="text-[var(--color-muted-foreground)] hover:text-white transition-colors"
+            className="text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors"
             aria-label="GitHub"
           >
             <Github size={22} />
@@ -75,14 +75,14 @@ export function HeroSection() {
             href={SITE_CONFIG.linkedin}
             target="_blank"
             rel="noopener"
-            className="text-[var(--color-muted-foreground)] hover:text-white transition-colors"
+            className="text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={22} />
           </a>
           <a
             href={`mailto:${SITE_CONFIG.email}`}
-            className="text-[var(--color-muted-foreground)] hover:text-white transition-colors"
+            className="text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors"
             aria-label="Email"
           >
             <Mail size={22} />

@@ -36,7 +36,7 @@ function ContributionGraph({ data }: { data: GitHubData | null }) {
   const recentWeeks = data.weeks.slice(-20);
 
   const getColor = (count: number) => {
-    if (count === 0) return "bg-white/5";
+    if (count === 0) return "bg-[var(--color-border)]";
     if (count <= 2) return "bg-[var(--color-primary)]/30";
     if (count <= 5) return "bg-[var(--color-primary)]/50";
     if (count <= 8) return "bg-[var(--color-primary)]/70";
@@ -133,7 +133,7 @@ export function StatsSection() {
 
   return (
     <section className="section-full noise relative" id="stats">
-      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-green-500 rounded-full blur-[160px] opacity-10" />
+      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-[var(--color-success)] rounded-full blur-[160px] opacity-10" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
         <motion.div

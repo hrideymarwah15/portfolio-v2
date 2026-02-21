@@ -69,7 +69,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--color-border)] text-white placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-border)] text-[var(--color-foreground)] placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all"
                 placeholder="Your name"
               />
             </div>
@@ -85,7 +85,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--color-border)] text-white placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-border)] text-[var(--color-foreground)] placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all"
                 placeholder="your@email.com"
               />
             </div>
@@ -101,7 +101,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--color-border)] text-white placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-border)] text-[var(--color-foreground)] placeholder:text-[var(--color-muted-foreground)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
                 placeholder="Tell me about your project..."
               />
             </div>
@@ -204,7 +204,7 @@ export function ContactSection() {
         >
           <p className="text-sm text-[var(--color-muted-foreground)]">
             Designed and built by{" "}
-            <span className="text-white">{SITE_CONFIG.name}</span>
+            <span className="text-[var(--color-foreground)] font-medium">{SITE_CONFIG.name}</span>
           </p>
         </motion.div>
       </div>

@@ -6,7 +6,7 @@ import { SITE_CONFIG, SKILLS } from "@/lib/constants";
 export function AboutSection() {
   return (
     <section className="section-full noise relative" id="about">
-      <div className="absolute top-0 right-0 w-80 h-80 bg-purple-600 rounded-full blur-[150px] opacity-10" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--color-primary)] rounded-full blur-[150px] opacity-10" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
         <motion.div
@@ -40,7 +40,7 @@ export function AboutSection() {
             </p>
             <p className="text-lg text-[var(--color-muted-foreground)] leading-relaxed">
               As an open-source contributor to{" "}
-              <span className="text-white font-medium">JAX at Google DeepMind</span>,
+              <span className="text-[var(--color-foreground)] font-medium">JAX at Google DeepMind</span>,
               I have learned the value of rigorous code review, clean architecture, and 
               collaborative problem solving. I bring that same discipline to every 
               project I build.
@@ -75,7 +75,7 @@ export function AboutSection() {
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[var(--color-muted-foreground)] group-hover:text-white transition-colors"
+                      className="text-xs px-2.5 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-muted-foreground)] group-hover:text-[var(--color-foreground)] transition-colors"
                     >
                       {skill}
                     </span>

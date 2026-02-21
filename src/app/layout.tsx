@@ -42,9 +42,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${roboto.variable} font-sans antialiased bg-[#0a0a0b] text-white`}
+        className={`${inter.variable} ${roboto.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-foreground)]`}
       >
         <Navbar />
         {children}

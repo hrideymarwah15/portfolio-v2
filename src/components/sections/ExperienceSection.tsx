@@ -7,7 +7,7 @@ import { EXPERIENCE } from "@/lib/constants";
 export function ExperienceSection() {
   return (
     <section className="section-full noise relative" id="experience">
-      <div className="absolute top-1/3 right-0 w-72 h-72 bg-purple-500 rounded-full blur-[150px] opacity-10" />
+      <div className="absolute top-1/3 right-0 w-72 h-72 bg-[var(--color-accent)] rounded-full blur-[150px] opacity-10" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-24">
         <motion.div
@@ -55,7 +55,7 @@ export function ExperienceSection() {
                         {exp.company}
                       </p>
                     </div>
-                    <span className="text-xs text-[var(--color-muted-foreground)] bg-white/5 px-3 py-1 rounded-full w-fit">
+                    <span className="text-xs text-[var(--color-muted-foreground)] bg-[var(--color-primary)]/10 px-3 py-1 rounded-full w-fit">
                       {exp.period}
                     </span>
                   </div>

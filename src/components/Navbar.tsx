@@ -41,7 +41,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--color-muted-foreground)] hover:text-white transition-colors duration-200"
+              className="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -57,7 +57,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white"
+          className="md:hidden text-[var(--color-foreground)]"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,7 +79,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg text-[var(--color-muted-foreground)] hover:text-white transition-colors"
+                  className="text-lg text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors"
                 >
                   {link.label}
                 </a>
